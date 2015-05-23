@@ -14,15 +14,21 @@ development:
   database: my_sample_database_development
   pool: 5
   timeout: 5000
+  #username: zabrams
+  #password:
 
 test:
   adapter: postgresql
   database: my_sample_database_test
   pool: 5
   timeout: 5000
+  #username: zabrams
+  #password:
 
 production:
   adapter: postgresql
   database: my_sample_database_production
   pool: 5
   timeout: 5000
+  #username: sample
+  #password:
