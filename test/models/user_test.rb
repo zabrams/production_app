@@ -56,6 +56,13 @@ class UserTest < ActiveSupport::TestCase
   	assert_not duplicate_user.valid? 
   end
 
+  test "all emails should be downcased before saved" do
+    cap_email = "FOoobar@GmaIl.com"
+    @user.email = cap_email
+    @user.save 
+    assert_equal @user.reload.email, cap_email.downcase
+  end
+
   test "password should be present" do
     @user.password = @user.password_confirmation = " " * 6
     assert_not @user.valid?
