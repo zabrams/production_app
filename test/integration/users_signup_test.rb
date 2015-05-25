@@ -12,7 +12,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   end
 
   test "valid sign should create new user" do
-  	assert_difference 'Users.count', 1 do
+  	assert_difference 'User.count', 1 do
   		post_via_redirect users_path, user: { name:  "Example User",
                                         email: "user@example.com",
                                         password:              "password",
