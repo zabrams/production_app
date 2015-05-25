@@ -5,13 +5,13 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-  	#debugger
   end 
 
   def create
   	@user = User.new(user_params)
   	if @user.save
-  		flash[:success] = 'Welcome to my app!'
+  		log_in(@user)
+      flash[:success] = 'Welcome to my app!'
   		redirect_to @user
   	else
   		render 'new'

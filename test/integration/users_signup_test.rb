@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class UsersSignupTest < ActionDispatch::IntegrationTest
-  
+
   test "invalid signup should not create user" do
   	get signup_path
   	assert_no_difference 'User.count' do
@@ -22,5 +22,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     assert_template 'users/show'
     assert_select "div[class='alert alert-success]", "Welcome to my app!"
+    assert is_logged_in?
   end 
 end
