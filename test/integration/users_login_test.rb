@@ -11,7 +11,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   	assert_template 'sessions/new'
   	post login_path session: { email: 'foobar@foo.com', password: "foobar"}
   	assert_template 'sessions/new'
-  	assert_select "div[class='alert alert-danger'", "Email/password don't match"
+  	assert_select "div[class='alert alert-danger']", "Email/password don't match"
   	get root_path
   	assert flash.empty? 
   end

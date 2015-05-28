@@ -21,7 +21,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                         password_confirmation: "password" }
     end
     assert_template 'users/show'
-    assert_select "div[class='alert alert-success]", "Welcome to my app!"
+    assert_select "div[class='alert alert-success']", "Welcome to my app!"
     assert is_logged_in?
   end 
 end
