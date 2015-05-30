@@ -1,0 +1,5 @@
+UserMailer#account_activation
+
+Hi <%= @user.name %>, 
+Welcome to this app! To activate your account, please click the link below: 
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
