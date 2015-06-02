@@ -4,7 +4,7 @@ class MicropostTest < ActiveSupport::TestCase
 
 	def setup
 		@user = users(:michael)
-		@micropost = Micropost.new(content: "Lorem Ipsum", user_id: @user.id)
+		@micropost = @user.microposts.build(content: "Lorem Ipsum")
 	end
 
 	test "should be valid?" do
@@ -24,6 +24,10 @@ class MicropostTest < ActiveSupport::TestCase
 	test "content should not exceed 140 chars" do
 		@micropost.content = "a" * 141
 		assert_not @micropost.valid?
+	end
+
+	test "order by recency" do
+		assert_equal microposts(:most_recent), Micropost.first
 	end
 
 end
